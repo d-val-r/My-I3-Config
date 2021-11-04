@@ -11,7 +11,9 @@
 
 set $mod Mod4
 
-set $browser firefox
+set $browser brave
+
+set $code vscodium
 
 
 
@@ -45,12 +47,13 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # keybindings I set
 bindsym $mod+u exec discord
 bindsym $mod+t exec thunderbird
 bindsym $mod+b exec $browser
+bindsym $mod+i exec $code
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -167,6 +170,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # forces all windows to be drawn without borders
 for_window [class=".*"] border none
 
+# add gaps between workspaces
+gaps inner 15
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -199,6 +205,7 @@ bindsym $mod+r mode "resize"
 # colors
 
 set $nordic-grey #373e4e
+set $black #000000
 
 
 
@@ -210,11 +217,11 @@ bar {
 	position top
 
 	colors {
-		background $nordic-grey
+		background $black
 
-		#			border		background	text
-		focused_workspace	$nordic-grey	$nordic-grey	#ffffff
-		inactive_workspace	$nordic-grey	$nordic-grey	#0d0d0d
+		#			border		background		text
+		focused_workspace	$nordic-grey	$black			#ffffff
+		inactive_workspace	$nordic-grey	$nordic-grey		#0d0d0d
 
 	}
 
